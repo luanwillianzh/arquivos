@@ -1,0 +1,46 @@
+# ----------------------------jangan di edit--------------------------------#
+mixed-port: 7893
+redir-port: 7892
+bind-address: "*"
+mode: rule
+allow-lan: true
+log-level: silent
+unified-delay: true
+ipv6: true
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+  use-host: true
+  nameserver:
+    - https://cloudflare-dns.com/dns-query
+# --------------------- Jangan di edit > info cek grup gatcha-------------#
+
+proxies:
+  - name: LuanW04 NET
+    server: 104.18.6.80
+    port: 443
+    type: trojan
+    password: 1904
+    skip-cert-verify: true
+    sni: vpngo.luanw.cf
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: vpngo.luanw.cf
+    udp: true
+    
+    
+proxy-groups:
+  - name: FASTSSH-SSHKIT-HOWDY
+    type: select
+    proxies:  
+      - LuanW04 NET
+      - DIRECT
+      
+rules:
+  - MATCH,FASTSSH-SSHKIT-HOWDY
+  
+  
